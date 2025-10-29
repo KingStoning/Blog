@@ -9,7 +9,7 @@ const basicConfig = {
 	description: 'KingKang的个人博客，分享技术与生活。“折腾不止，摸鱼生活——摸门🙏🏻”。KingKang是一名向前的人，结识了许多志同道合的朋友。这个博客记录了他在生活和技术学习中的点滴经历，充满启发与思考。网站界面简洁美观，内容丰富实用，人气互动活跃，涵盖了编程、生活、学习等多个领域，为读者提供了卓越的阅读体验。',
 	author: {
 		name: 'KingKang',
-		avatar: 'https://www.zhilu.site/api/avatar.png',
+		avatar: '/my-icon.png',
 		email: 'kingkang527@outlook.com',
 		homepage: 'https://blog.kingkang.xyz/',
 	},
@@ -18,7 +18,7 @@ const basicConfig = {
 		name: '署名-非商业性使用-相同方式共享 4.0 国际',
 		url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans',
 	},
-	favicon: 'https://www.zhilu.site/api/icon.png',
+	favicon: '/favicon.ico',
 	language: 'zh-CN',
 	timeEstablished: '2023-08-04',
 	timezone: 'Asia/Shanghai',
