@@ -1,70 +1,55 @@
+/* app/assets/css/font.scss
+ * 全量替换版：全站使用「LXGW WenKai GB Screen」
+ * 覆盖后无需改其它文件（main.scss 会用 var(--font-basic)）
+ */
+
+/* 1) 本地字体声明（单字重） */
+@font-face {
+  font-family: "LXGW WenKai GB Screen";
+  src: url("/fonts/LXGWWenKaiGBScreen.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2) 全站字体变量：全部优先使用文楷 */
 :root {
-	--font-basic: "Inter-Local", "InterVariable", "Noto Sans SC-Local", "Noto Sans SC", system-ui, sans-serif;
-	--font-serif: "Noto Serif SC-Local", "Noto Serif SC", "华文中宋", "Times New Roman", serif;
-	--font-creative: "Inter-Local", "InterVariable", "Noto Sans SC-Local", "Noto Sans SC", "MiSans", system-ui, sans-serif;
-	--font-stroke-free: "Inter-Local", "Inter", "Microsoft YaHei", "MiSans", system-ui, sans-serif;
-	--font-monospace: "JetBrains Mono", "Cascadia Code", "Monaco", "Consolas", "monospace", var(--font-basic), monospace;
+  /* 页面默认字体 */
+  --font-basic: "LXGW WenKai GB Screen",
+                "Inter-Local", "InterVariable",
+                "Noto Sans SC-Local", "Noto Sans SC",
+                "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+                system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 
-	@media (max-resolution: 1.2dppx) {
-		--font-basic: "Inter-Local", "InterVariable", system-ui, sans-serif;
-	}
+  /* 创意/标题等：同样用文楷优先 */
+  --font-creative: "LXGW WenKai GB Screen",
+                   "Inter-Local", "InterVariable",
+                   "Noto Sans SC-Local", "Noto Sans SC",
+                   "MiSans",
+                   system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+
+  /* 需要衬线风格的地方，这里也统一用文楷（你也可以改成真正衬线体） */
+  --font-serif: "LXGW WenKai GB Screen",
+                "Noto Serif SC", "Source Han Serif SC",
+                "Songti SC", "SimSun",
+                serif;
+
+  /* 等宽字体保持不变（代码块等场景） */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+               "Liberation Mono", "Source Code Pro", monospace;
+
+  /* 字体渲染细节，可按需调整 */
+  --font-smoothing: antialiased;
 }
 
-$font-weights: (
-	100: "Thin",
-	200: "ExtraLight",
-	300: "Light",
-	400: "Regular",
-	500: "Medium",
-	600: "SemiBold",
-	700: "Bold",
-	800: "ExtraBold",
-	900: "Black"
-);
-
-@each $weight, $name in $font-weights {
-	@font-face {
-		font-family: Inter-Local;
-		font-weight: $weight;
-		src: local("Inter #{$name}");
-	}
-
-	@font-face {
-		font-family: Inter-Local;
-		font-style: italic;
-		font-weight: $weight;
-		src: local("Inter #{if($weight == 400, 'Italic', '#{$name} Italic')}");
-	}
+/* 3) 可选：统一细节（不想要可删除） */
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@mixin inter-styleset($font-family) {
-	@font-feature-values "#{$font-family}" {
-		@styleset {
-			open-digits: 1;
-			disambiguation: 2;
-			round-quotes-and-commas: 3;
-			disambiguation-except-zero: 4;
-			circled-characters: 5;
-			squared-characters: 6;
-			square-punctuation: 7;
-			square-quotes: 8;
-		}
-	}
-}
-
-@include inter-styleset(Inter-Local);
-
-// 仅在 Chrome 111+ 启用本地可变字体
-@supports (font-variant-alternates: normal) {
-	@font-face {
-		font-family: "Noto Sans SC-Local";
-		font-weight: 100 900; // 不指定则为 400
-		src: local("Noto Sans SC");
-	}
-
-	@font-face {
-		font-family: "Noto Serif SC-Local";
-		font-weight: 100 900;
-		src: local("Noto Serif SC");
-	}
-}
+/* 说明：
+ * - main.scss 中通常会有 `font-family: var(--font-basic);`
+ *   因此修改以上变量即可全站生效。
+ * - 这个字体一般只有一个字重，浏览器会对 500/700 等进行合成。
+ */
