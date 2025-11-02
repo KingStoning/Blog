@@ -5,7 +5,7 @@ date: 2025-08-18 01:16:02
 updated: 2025-08-18 03:27:42
 # image:
 type: story
-categories: [杂谈]
+categories: [随想]
 tags: [问题]
 
 references:
