@@ -1,7 +1,6 @@
 ---
 title: 事实都在变
 description:
-date: "[[2025-11-04]]"
 时间: 2025-11-04
 image:
 type:
