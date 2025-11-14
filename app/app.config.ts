@@ -69,7 +69,7 @@ export default defineAppConfig({
 				items: [
 					{ icon: 'simple-icons:nuxtdotjs', text: `主题: Clarity ${version}`, url: 'https://github.com/L33Z22L11/blog-v3' },
 					{ icon: 'ph:swatches-bold', text: '主题和组件文档', url: '/theme' },
-					{ icon: 'ph:certificate-bold', text: '辽ICP备2024029945号-1', url: 'https://beian.miit.gov.cn/' },
+					{ icon: 'ph:certificate-bold', text: 'ICP-888888888888', url: 'https://beian.miit.gov.cn/' },
 				],
 			},
 		] satisfies Nav,
@@ -92,7 +92,7 @@ export default defineAppConfig({
 				{ icon: 'ph:files-bold', text: '文章', url: '/' },
 				{ icon: 'ph:link-bold', text: '友链', url: '/link' },
 				{ icon: 'ph:archive-bold', text: '归档', url: '/archive' },
-				{ icon: 'ph:book-bookmark-fill', text: '寸心', url: '/about' },
+				{ icon: 'ph:book-bookmark-fill', text: '关于我', url: '/about' },
 			],
 		},
 	] satisfies Nav,
