@@ -2,7 +2,7 @@
 title: 为啥要弄博客
 description: 我为什么坚持要有一个博客
 date: 2025-08-18 01:16:02
-updated: 2025-11-18
+updated: 2025-11-18 23:05
 image: https://img20.360buyimg.com/openfeedback/jfs/t1/345342/37/20637/21696/6906d1adF5429631f/9b773ac200a7b1d8.webp
 type: story
 categories: [随想]
@@ -66,8 +66,21 @@ tags: [随想,学习,自我提升,博客 ]
 
 *天上太阳红呀红彤彤
 Cloudflare是我们的大救星*
+---
+2025年11月18日 晚上补
+
+今天下午遇到了，有史以来，Cloudflare最大的一直崩溃
+所有的Cloudflare相关的业务网站都打不开了，包括我的博客
+哈哈，今天下午还在更新，说，Cloudflare好
+结果晚上就崩溃了，还是全球性的崩溃
+
+恢复之后，我在itdog上面测试我的博客打开速度，发现速度反而比之前更快了，真是奇怪；可能是因为访问人少的原因，也能使Cloudflare调了路由
+
+*看来对Cloudflare也要三七分嘛，七分是功，三分是过*
+![](https://ps.ssl.qhimg.com/t02d6413569808a99e7.jpg)
 
 
 #随想 #学习 #自我提升 #博客 
+
 
 
