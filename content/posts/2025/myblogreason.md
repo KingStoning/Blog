@@ -2,7 +2,7 @@
 title: 为啥要弄博客
 description: 我为什么坚持要有一个博客
 date: 2025-08-18 01:16:02
-updated: 2025-08-18 03:27:42
+updated: 2025-11-18
 image: https://img20.360buyimg.com/openfeedback/jfs/t1/345342/37/20637/21696/6906d1adF5429631f/9b773ac200a7b1d8.webp
 type: story
 categories: [随想]
@@ -69,4 +69,5 @@ Cloudflare是我们的大救星*
 
 
 #随想 #学习 #自我提升 #博客 
+
 
