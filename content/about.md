@@ -4,8 +4,11 @@
 
 
 我是一个
+
 农村的叛逃者
+
 城市的游荡者
+
 无知的普通人
 
 ## 对上面三个的感想
@@ -41,3 +44,4 @@
 > 去看生活，去看世界；去目击伟大的历史事件；去看穷人的面孔和骄傲者的姿态；去看不同寻常的事物——机器、军队、群众、以及丛林中和月球上的阴影；去看人类的杰作——绘画、建筑和发明；去看千里之外的世界，去看隐藏在高墙后和房间内的事物，以及难以接近的危险事件；去看那些被男人所爱着的女人们还有孩子；去看并且享受愉悦；去看并被感动；去看并被教育...
 
 > To see life; to see the world; to eyewitness great events; to watch the faces of the poor and the gestures of the proud; to see strange things — machines, armies, multitudes, shadows in the jungle and on the moon; to see man’s work — his paintings, towers and discoveries; to see things thousands of miles away, things hidden behind walls and within rooms, things dangerous to come to; the women that men love and many children; to see and take pleasure in seeing; to see and be amazed; to see and be instructed...
+
