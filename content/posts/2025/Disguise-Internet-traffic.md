@@ -10,8 +10,7 @@ tags: [随想]
 ---
 
 推荐浏览制作的网页,更加可视化
-https://reality-41u.pages.dev/
-![reality-41u.pages.dev](https://reality-41u.pages.dev/)
+[可视化网址(国内打不开)](https://reality-41u.pages.dev/)
 
 # 基于Xray Reality的大流量伪装与ICP备案域名深度战略分析报告
 
