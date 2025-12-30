@@ -98,12 +98,12 @@
 		opacity: 0.5;
 	}
 
-	&.md-tech > h2 > a::before {
+	&:is(.md-tech, .md-story) > h2 > a::before {
 		content: "#";
 		color: white;
 	}
 
-	&.md-tech > :where(h2, h3, h4, h5, h6) > a::before {
+	&:is(.md-tech, .md-story) > :where(h2, h3, h4, h5, h6) > a::before {
 		content: "";
 		margin-inline-end: 0.5em;
 		padding: 0 2px;
@@ -114,31 +114,9 @@
 
 	&.md-story {
 		h1, h2, h3, h4, h5, h6, .title-like {
-			position: relative;
-			font-family: var(--font-serif);
-			font-weight: bolder;
-			text-align: center;
-			text-wrap: balance;
-		}
-
-		> h2::before {
-			content: "";
-			position: absolute;
-			width: 2.5em;
-			height: 2.5em;
-			margin: -0.4em 0 0 -0.7em;
-			border-radius: 2.5em;
-			background-image: linear-gradient(var(--c-primary-soft), transparent);
-			z-index: -1;
-		}
-
-		> h3::after {
-			content: "";
-			position: absolute;
-			bottom: 0;
-			width: 0.4em;
-			height: 0.7em;
-			background-color: var(--c-primary-soft);
+			font-family: var(--font-creative);
+			font-weight: 600;
+			text-align: start;
 		}
 
 		> p, :not([class]) > p {
