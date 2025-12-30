@@ -45,6 +45,7 @@ if (import.meta.env.DEV) {
 
 <template>
 <template v-if="post">
+	<ReadingProgress />
 	<PostHeader v-bind="post" />
 	<PostExcerpt v-if="excerpt" :excerpt />
 	<!-- 使用 float-in 动画会导致搜索跳转不准确 -->
