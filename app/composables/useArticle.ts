@@ -8,7 +8,7 @@ export function useArticleIndex(path = 'posts/%') {
 		`index_${path}`,
 		() => queryCollection('content')
 			.where('stem', 'LIKE', path)
-			.select('categories', 'date', 'description', 'image', 'path', 'readingTime', 'recommend', 'title', 'type', 'updated')
+			.select('categories', 'date', 'description', 'image', 'path', 'readingTime', 'recommend', 'tags', 'title', 'type', 'updated')
 			.all(),
 		{ default: () => [] }, // 不返回 undefined
 	)
@@ -34,6 +34,33 @@ export function useCategory(list: MaybeRefOrGetter<ArticleProps[]>, options?: Us
 		category,
 		categories,
 		listCategorized,
+	}
+}
+
+interface UseTagsOptions {
+	bindQuery?: string | false
+}
+
+export function useTags(list: MaybeRefOrGetter<ArticleProps[]>, options?: UseTagsOptions) {
+	const { bindQuery } = options ?? {}
+	const tag = bindQuery
+		? useRouteQuery(bindQuery, undefined, { transform: (value?: string) => value, mode: 'push' })
+		: ref<string | undefined>()
+	const tags = computed(() => [...new Set(
+		toValue(list)
+			.flatMap(item => item.tags ?? [])
+			.filter(Boolean),
+	)])
+	const listTagged = computed(
+		() => toValue(list).filter(
+			item => !tag.value || item.tags?.includes(tag.value),
+		),
+	)
+
+	return {
+		tag,
+		tags,
+		listTagged,
 	}
 }
 
