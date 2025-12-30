@@ -13,9 +13,13 @@ layoutStore.setAside(['blog-stats', 'blog-tech', 'comm-group'])
 const { data: listRaw } = await useArticleIndex()
 const { listSorted, isAscending, sortOrder } = useArticleSort(listRaw)
 const { category, categories, listCategorized } = useCategory(listSorted, { bindQuery: 'category' })
-const { page, totalPages, listPaged } = usePagination(listCategorized, { bindQuery: 'page' })
+const { tag, tags, listTagged } = useTags(listCategorized, { bindQuery: 'tag' })
+const { page, totalPages, listPaged } = usePagination(listTagged, { bindQuery: 'page' })
 
 watch(category, () => {
+	page.value = 1
+})
+watch(tag, () => {
 	page.value = 1
 })
 
@@ -34,7 +38,7 @@ const listRecommended = computed(() => sort(
 	<ZhiluHeader to="/" />
 </div>
 
-<PostSlide v-if="listRecommended.length && page === 1 && !category" :list="listRecommended" />
+<PostSlide v-if="listRecommended.length && page === 1 && !category && !tag" :list="listRecommended" />
 
 <div class="post-list proper-height">
 	<div class="toolbar">
@@ -46,12 +50,15 @@ const listRecommended = computed(() => sort(
 			</ZRawLink>
 		</div>
 
-		<ZOrderToggle
-			v-model:is-ascending="isAscending"
-			v-model:sort-order="sortOrder"
-			v-model:category="category"
-			:categories
-		/>
+		<div class="filters">
+			<ZTagSelector v-model:tag="tag" :tags="tags" />
+			<ZOrderToggle
+				v-model:is-ascending="isAscending"
+				v-model:sort-order="sortOrder"
+				v-model:category="category"
+				:categories
+			/>
+		</div>
 	</div>
 
 	<TransitionGroup name="float-in">
@@ -74,6 +81,12 @@ const listRecommended = computed(() => sort(
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+}
+
+.filters {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
 }
 
 .preview-entrance {

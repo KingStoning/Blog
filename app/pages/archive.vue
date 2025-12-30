@@ -13,11 +13,12 @@ layoutStore.setAside(['blog-stats', 'blog-log'])
 
 const { data: listRaw } = await useArticleIndex()
 const { listSorted, isAscending, sortOrder } = useArticleSort(listRaw)
-const { category, categories, listCategorized } = useCategory(listSorted)
+const { category, categories, listCategorized } = useCategory(listSorted, { bindQuery: 'category' })
+const { tag, tags, listTagged } = useTags(listCategorized, { bindQuery: 'tag' })
 
 const listGrouped = computed(() => {
 	const groupList = Object.entries(group(
-		listCategorized.value,
+		listTagged.value,
 		article => new Date(article[sortOrder.value] || 0).getFullYear(),
 	))
 	return isAscending.value ? groupList : groupList.reverse()
@@ -35,12 +36,15 @@ const yearlyWordCount = computed(() => {
 
 <template>
 <div class="archive proper-height">
-	<ZOrderToggle
-		v-model:is-ascending="isAscending"
-		v-model:sort-order="sortOrder"
-		v-model:category="category"
-		:categories
-	/>
+	<div class="filters">
+		<ZTagSelector v-model:tag="tag" :tags="tags" />
+		<ZOrderToggle
+			v-model:is-ascending="isAscending"
+			v-model:sort-order="sortOrder"
+			v-model:category="category"
+			:categories
+		/>
+	</div>
 
 	<section
 		v-for="[year, yearGroup] in listGrouped"
@@ -81,6 +85,13 @@ const yearlyWordCount = computed(() => {
 .archive {
 	margin: 1rem;
 	mask-image: linear-gradient(#FFF 50%, #FFF5);
+}
+
+.filters {
+	display: flex;
+	justify-content: flex-end;
+	margin-block-end: 1rem;
+	gap: 0.75rem;
 }
 
 .archive-group {
