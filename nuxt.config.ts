@@ -70,6 +70,8 @@ export default defineNuxtConfig({
 		'/api/stats': { prerender: true, headers: { 'Content-Type': 'application/json' } },
 		'/atom.xml': { prerender: true, headers: { 'Content-Type': 'application/xml' } },
 		'/favicon.ico': { redirect: { to: blogConfig.favicon } },
+		'/robots.txt': { prerender: true, headers: { 'Content-Type': 'text/plain' } },
+		'/sitemap.xml': { prerender: true, headers: { 'Content-Type': 'application/xml' } },
 		'/zhilu.opml': { prerender: true, headers: { 'Content-Type': 'application/xml' } },
 	},
 
