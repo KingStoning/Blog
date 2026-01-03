@@ -1,12 +1,10 @@
 ---
 title: [转载] 怎么看待今年河北省农村取暖问题冲上热搜？
-url: https://www.zhihu.com/question/1990158382263468528/answer/1990555356917698978
 author: 长太息
 author_badge: 河间格义心如故，伏壁藏经世已新
 created: 2026-01-02 22:49
 categories: [随想]
 tags: 观察,转载
-
 ---
 前情提要:
 本文是转载自知乎答主,长太息的回答
