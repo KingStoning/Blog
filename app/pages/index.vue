@@ -2,10 +2,6 @@
 import { sort } from 'radash'
 
 const appConfig = useAppConfig()
-useSeoMeta({
-	description: appConfig.description,
-	ogImage: appConfig.author.avatar,
-})
 
 const layoutStore = useLayoutStore()
 layoutStore.setAside(['blog-stats', 'blog-tech', 'comm-group'])
@@ -23,7 +19,11 @@ watch(tag, () => {
 	page.value = 1
 })
 
-useSeoMeta({ title: () => (page.value > 1 ? `第${page.value}页` : '') })
+useSeoMeta({
+	title: () => (page.value > 1 ? `第${page.value}页 | ${appConfig.title}` : appConfig.title),
+	description: appConfig.description,
+	ogImage: appConfig.author.avatar,
+})
 
 const listRecommended = computed(() => sort(
 	listRaw.value.filter(item => item?.recommend),

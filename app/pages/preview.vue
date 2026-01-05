@@ -3,6 +3,7 @@ const appConfig = useAppConfig()
 useSeoMeta({
 	title: '预览',
 	description: `${appConfig.title}的文章预览。`,
+	robots: 'noindex, nofollow',
 })
 const layoutStore = useLayoutStore()
 layoutStore.setAside(['blog-log'])
