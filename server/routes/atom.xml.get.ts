@@ -2,6 +2,7 @@ import type { ContentCollectionItem } from '@nuxt/content'
 import { formatISO } from 'date-fns'
 import { XMLBuilder } from 'fast-xml-parser'
 import blogConfig from '~~/blog.config'
+import { renderContentToHtml } from '../utils/render-content-to-html'
 import { version } from '~~/package.json'
 
 const runtimeConfig = useRuntimeConfig()
@@ -23,16 +24,13 @@ function getUrl(path: string | undefined) {
 }
 
 function renderContent(post: ContentCollectionItem) {
-	return [
-		post.image && `<img src="${post.image}" />`,
-		post.description && `<p>${post.description}</p>`,
-		`<a class="view-full" href="${getUrl(post.path)}" target="_blank">点击查看全文</a>`,
-	].join(' ')
+	return renderContentToHtml(post.body) || ''
 }
 
 export default defineEventHandler(async (event) => {
 	const posts = await queryCollection(event, 'content')
 		.where('stem', 'LIKE', 'posts/%')
+		.select('path', 'title', 'updated', 'author', 'description', 'categories', 'published', 'date', 'image', 'body')
 		.order('updated', 'DESC')
 		.limit(blogConfig.feed.limit)
 		.all()
