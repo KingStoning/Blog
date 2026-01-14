@@ -1,4 +1,4 @@
-name: Deploy to BT (Ubuntu VPS)
+name: Deploy to BT (build on GitHub)
 
 on:
   push:
@@ -13,7 +13,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22.15.0"
-          cache: "pnpm"
 
       - uses: pnpm/action-setup@v4
         with:
@@ -22,7 +21,7 @@ jobs:
       - name: Install
         run: pnpm i --frozen-lockfile
 
-      - name: Generate (SSG)
+      - name: Generate
         run: pnpm generate
 
       - name: Deploy dist -> VPS
