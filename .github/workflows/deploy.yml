@@ -14,9 +14,11 @@ jobs:
         with:
           node-version: "22.15.0"
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
+      # 关键：用 corepack 按 package.json 的 packageManager 装 pnpm
+      - name: Enable corepack + install pnpm from packageManager
+        run: |
+          corepack enable
+          corepack install
 
       - name: Install
         run: pnpm i --frozen-lockfile
