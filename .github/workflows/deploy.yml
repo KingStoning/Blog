@@ -1,29 +1,28 @@
-name: Deploy to Ubuntu VPS (BT)
+name: Deploy to BT (Ubuntu VPS)
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: pnpm
+          node-version: "22.15.0"
+          cache: "pnpm"
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
 
       - name: Install
-        run: pnpm install --frozen-lockfile
+        run: pnpm i --frozen-lockfile
 
-      - name: Build
+      - name: Generate (SSG)
         run: pnpm generate
 
       - name: Deploy dist -> VPS
