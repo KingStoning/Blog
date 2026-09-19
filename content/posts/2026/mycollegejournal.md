@@ -1,8 +1,8 @@
 ---
 title: 我的大学小记
 description: 
-date: 2026-03-14-23:03:44
-updated: 2026-03-14-23:03:44
+date: 2026-03-14
+updated: 2026-03-14
 image:
 type: story
 categories: [随想]
