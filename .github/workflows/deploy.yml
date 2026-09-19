@@ -50,7 +50,7 @@ jobs:
       - name: Deploy to VPS
         uses: burnett01/rsync-deployments@7.0.1
         with:
-          switches: -avzr --delete
+          switches: -avzr --delete --exclude='.well-known/'
           path: .output/public/
           remote_path: ${{ secrets.VPS_PATH }}
           remote_host: ${{ secrets.VPS_HOST }}
